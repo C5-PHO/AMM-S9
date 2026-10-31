@@ -1,6 +1,6 @@
-# Laboratorio 09 · Netflix y Prime Video
+# Laboratorio 09 · Max
 
-Maquetas móviles en Flutter correspondientes a la parte de Piero del trabajo en pareja. Las pantallas de Disney+ y Max corresponden a la otra parte del equipo.
+Trabajo individual de Aplicaciones Multiplataforma. Interfaz móvil en Flutter inspirada en Max, implementada en `lib/main.dart`.
 
 ## Ejecutar
 
@@ -9,40 +9,39 @@ flutter pub get
 flutter run
 ```
 
-## Colocar las imágenes
+## Imágenes que debes colocar
 
-Todas las rutas parten de la raíz de este proyecto. Usar exactamente los nombres indicados, en minúsculas y con extensión `.jpg` (convertir el archivo a JPEG; no basta cambiar la extensión).
+Carpeta absoluta:
+`C:\Users\piero\Documents\Tecsup\C5\AMM\SemanaS9\flutter_application_1\assets\images\max`
 
-| Carpeta | Archivo | Imagen sugerida |
+| Nombre exacto | Contenido sugerido | Proporción recomendada |
 | --- | --- | --- |
-| assets/images/netflix/ | portada.jpg | Collage de películas y series, horizontal, 1920 × 1080 recomendado |
-| assets/images/netflix/ | stranger_things.jpg | Póster vertical de Stranger Things |
-| assets/images/netflix/ | merlina.jpg | Póster vertical de Merlina |
-| assets/images/netflix/ | el_juego_del_calamar.jpg | Póster vertical de El juego del calamar |
-| assets/images/netflix/ | la_casa_de_papel.jpg | Póster vertical de La casa de papel |
-| assets/images/prime/ | portada.jpg | Imagen promocional horizontal de Prime Video, 1920 × 1080 recomendado |
-| assets/images/prime/ | the_boys.jpg | Imagen horizontal de The Boys |
-| assets/images/prime/ | fallout.jpg | Imagen horizontal de Fallout |
-| assets/images/prime/ | los_anillos_de_poder.jpg | Imagen horizontal de Los anillos de poder |
-| assets/images/prime/ | reacher.jpg | Imagen horizontal de Reacher |
+| portada.jpg | Collage o imagen promocional de Max sin textos | 16:9, 1920 × 1080 o mayor |
+| the_last_of_us.jpg | Póster de The Last of Us | 2:3 |
+| la_casa_del_dragon.jpg | Póster de La casa del dragón | 2:3 |
+| the_batman.jpg | Póster de The Batman | 2:3 |
+| dune_2.jpg | Póster de Dune: Parte dos | 2:3 |
+| harry_potter.jpg | Póster de Harry Potter | 2:3 |
+| friends.jpg | Póster de Friends | 2:3 |
 
-Pósteres Netflix: proporción 2:3. Tarjetas Prime: proporción 16:9. Las imágenes se recortan para llenar su espacio. Elegir portadas sin textos pequeños porque la interfaz superpone el contenido.
+Usar JPEG real, nombres en minúsculas y sin espacios. No basta cambiar la extensión de un PNG o WebP. Las tarjetas horizontales reutilizan los pósteres y los recortan automáticamente. Las imágenes faltantes muestran un fondo azul con el título; deben agregarse antes de entregar para completar el requisito de imágenes locales.
 
-Los directorios ya están registrados en `pubspec.yaml`. Después de agregar nuevos archivos ejecutar `flutter pub get` y reiniciar la app por completo. Mientras falten imágenes se muestra un fondo con el nombre del título, sin interrumpir la navegación.
+La carpeta ya está registrada en `pubspec.yaml`. Después de añadir los archivos ejecutar `flutter pub get` y reiniciar la aplicación por completo.
 
-La sección «Una experiencia de cine» utiliza una imagen en la nube de Unsplash, requiere internet y tiene fondo de reemplazo si falla. Su URL se encuentra en `PrimePage` dentro de `lib/main.dart`.
+La sección de dispositivos carga una fotografía de cine desde Unsplash mediante `Image.network`. Requiere internet y muestra un fondo de reemplazo si falla. Android ya tiene permiso de internet en el manifiesto principal.
 
-## Relación con la consigna
+## Requisitos cubiertos
 
-- ListView vertical para las páginas y horizontal para los catálogos.
-- Row y Column para composición; ListTile y Card para menú y beneficios.
-- Listas de mapas para los títulos; rutas `/`, `/netflix` y `/prime`.
-- Tema global oscuro.
-- Tres fuentes locales: Lato, Bebas Neue y Open Sans; licencias en `assets/fonts/`.
-- Imágenes locales preparadas e imagen remota configurada.
-- Formulario con validación local, FAQ desplegable y detalle de títulos.
+- ListView horizontal para catálogos y vertical para la pantalla de detalle.
+- Row en el diálogo y encabezados del framework; Column para composición de secciones. Wrap permite adaptar grupos al ancho móvil.
+- ListTile y Card para beneficios y títulos.
+- Lista de mapas para los títulos y sus descripciones.
+- Rutas `/` y `/detalle`, con argumentos y navegación de regreso.
+- Tema global oscuro, acentos azules y tres fuentes locales: Lato, Open Sans y Bebas Neue.
+- Imágenes locales configuradas e imagen en la nube.
+- Navegación a catálogo y planes, detalle de título, validación de email y FAQ desplegable.
 
-Las imágenes locales deben agregarse antes de la entrega para completar ese requisito. El proyecto es una demostración académica: no reproduce videos, no autentica cuentas y no envía correos.
+Los planes y las descripciones son ilustrativos. La aplicación no reproduce videos, no realiza compras, no autentica cuentas ni transmite el correo ingresado. Los títulos del catálogo son ejemplos de diseño, no una afirmación de disponibilidad actual.
 
 ## Validación
 
@@ -52,12 +51,14 @@ flutter test
 flutter build web
 ```
 
-Pruebas de navegación, validación del formulario, FAQ y ausencia de errores de layout en dispositivos de 390 px y 320 px.
+Tres pruebas de widgets cubren los flujos interactivos y tamaños móviles de 320 y 390 píxeles. Las pruebas de red utilizan el reemplazo de imagen; no verifican la disponibilidad del servicio externo.
 
 ## Referencias
 
-- Consigna: https://tecsup.instructure.com/courses/73402/assignments/1930937?module_item_id=6315504
-- Netflix Perú: https://www.netflix.com/pe/
-- Prime Video: https://www.primevideo.com/
+- Consigna original: https://tecsup.instructure.com/courses/73402/assignments/1930937?module_item_id=6315504
+- Referencia elegida: https://www.max.com/
+- Repositorio: https://github.com/C5-PHO/AMM-S9
 
-Repositorio local con commits por responsabilidad. El remoto se configurará cuando se indique su URL.
+Alcance actualizado por indicación del docente: trabajo individual y diseño de una sola plataforma. La implementación es una interpretación visual; el sitio de referencia bloqueó el acceso automatizado.
+
+Las licencias de las tres fuentes están incluidas en `assets/fonts/`.
