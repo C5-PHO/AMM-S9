@@ -9,7 +9,7 @@ flutter pub get
 flutter run
 ```
 
-## Imágenes que debes colocar
+## Imágenes locales incluidas
 
 Carpeta absoluta:
 `C:\Users\piero\Documents\Tecsup\C5\AMM\SemanaS9\flutter_application_1\assets\images\max`
@@ -24,7 +24,7 @@ Carpeta absoluta:
 | harry_potter.jpg | Póster de Harry Potter | 2:3 |
 | friends.jpg | Póster de Friends | 2:3 |
 
-Usar JPEG real, nombres en minúsculas y sin espacios. No basta cambiar la extensión de un PNG o WebP. Las tarjetas horizontales reutilizan los pósteres y los recortan automáticamente. Las imágenes faltantes muestran un fondo azul con el título; deben agregarse antes de entregar para completar el requisito de imágenes locales.
+Usar JPEG real, nombres en minúsculas y sin espacios. No basta cambiar la extensión de un PNG o WebP. Las tarjetas horizontales reutilizan los pósteres y los recortan automáticamente. Las siete imágenes ya están incluidas. Las fuentes están documentadas en `assets/images/max/SOURCES.md`. Si se elimina una imagen, la interfaz muestra un fondo azul de reemplazo.
 
 La carpeta ya está registrada en `pubspec.yaml`. Después de añadir los archivos ejecutar `flutter pub get` y reiniciar la aplicación por completo.
 
@@ -75,4 +75,5 @@ Las licencias de las tres fuentes están incluidas en `assets/fonts/`.
 - `lib/widgets/`: componentes visuales reutilizables y diálogo de acceso.
 - `assets/`: imágenes y fuentes con sus licencias.
 - `test/`: pruebas de interfaz.
+
 
