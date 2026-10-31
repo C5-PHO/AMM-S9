@@ -21,7 +21,7 @@ void main() {
       expect(find.text('Drama · Supervivencia'), findsOneWidget);
       await tester.pageBack();
       await tester.pumpAndSettle();
-      await tester.tap(find.text('SUSCRÍBETE'));
+      await tester.tap(find.text('Planes'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('SELECCIONAR PLAN').first);
       await tester.pumpAndSettle();
@@ -29,6 +29,12 @@ void main() {
         find.textContaining('Seleccionaste Básico con anuncios'),
         findsOneWidget,
       );
+      await tester.tap(find.text('Inicio'));
+      await tester.pumpAndSettle();
+      expect(find.text('MUCHO MÁS QUE VER.'), findsOneWidget);
+      await tester.tap(find.text('Catálogo'));
+      await tester.pumpAndSettle();
+      expect(find.text('Tu próxima obsesión está aquí.'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
   }

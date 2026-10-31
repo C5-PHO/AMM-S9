@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import '../widgets/artwork.dart';
 import '../widgets/max_logo.dart';
-import '../widgets/demo_notice.dart';
-import '../data/catalog_data.dart';
 import '../theme/app_theme.dart';
-import '../widgets/catalog_shelf.dart';
 import '../widgets/section_heading.dart';
 import '../widgets/login_dialog.dart';
+import '../widgets/max_navigation.dart';
 
 class MaxPage extends StatefulWidget {
   const MaxPage({super.key});
@@ -16,24 +14,11 @@ class MaxPage extends StatefulWidget {
 
 class _MaxPageState extends State<MaxPage> {
   final scrollController = ScrollController();
-  final plansKey = GlobalKey();
-  final catalogKey = GlobalKey();
 
   @override
   void dispose() {
     scrollController.dispose();
     super.dispose();
-  }
-
-  void goTo(GlobalKey key) {
-    final target = key.currentContext;
-    if (target != null) {
-      Scrollable.ensureVisible(
-        target,
-        duration: const Duration(milliseconds: 450),
-        curve: Curves.easeInOut,
-      );
-    }
   }
 
   @override
@@ -60,16 +45,16 @@ class _MaxPageState extends State<MaxPage> {
             style: FilledButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 14),
             ),
-            onPressed: () => goTo(plansKey),
+            onPressed: () => Navigator.pushNamed(context, '/planes'),
             child: const Text('SUSCRÍBETE', style: TextStyle(fontSize: 10)),
           ),
         ),
       ],
     ),
+    bottomNavigationBar: const MaxNavigation(selectedIndex: 0),
     body: SingleChildScrollView(
       controller: scrollController,
       child: Column(
-        // Pocas secciones: se mantienen montadas para navegar a ellas con GlobalKey.
         children: [
           Stack(
             children: [
@@ -121,7 +106,8 @@ class _MaxPageState extends State<MaxPage> {
                         ),
                         const SizedBox(height: 26),
                         FilledButton(
-                          onPressed: () => goTo(plansKey),
+                          onPressed: () =>
+                              Navigator.pushNamed(context, '/planes'),
                           child: const Text('ELIGE TU PLAN'),
                         ),
                         const SizedBox(height: 14),
@@ -159,7 +145,8 @@ class _MaxPageState extends State<MaxPage> {
                         ),
                         const SizedBox(height: 28),
                         TextButton(
-                          onPressed: () => goTo(catalogKey),
+                          onPressed: () =>
+                              Navigator.pushNamed(context, '/catalogo'),
                           child: const Wrap(
                             alignment: WrapAlignment.center,
                             children: [
@@ -182,25 +169,6 @@ class _MaxPageState extends State<MaxPage> {
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          Column(
-            key: catalogKey,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SectionHeading(
-                eyebrow: 'HISTORIAS QUE DEJAN HUELLA',
-                title: 'Tu próxima obsesión está aquí.',
-              ),
-              CatalogShelf(items: titles.take(4).toList()),
-              const SectionHeading(
-                eyebrow: 'PARA CADA MOMENTO',
-                title: 'Encuentra algo que te encante.',
-              ),
-              CatalogShelf(
-                items: [titles[4], titles[5], titles[2], titles[3]],
-                landscape: true,
               ),
             ],
           ),
@@ -272,90 +240,6 @@ class _MaxPageState extends State<MaxPage> {
                   ),
               ],
             ),
-          ),
-          Column(
-            key: plansKey,
-            children: [
-              const SectionHeading(
-                eyebrow: 'ENTRETENIMIENTO A TU MEDIDA',
-                title: 'Elige cómo quieres ver Max.',
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24),
-                child: Text(
-                  'Planes ilustrativos para esta maqueta académica.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white54, fontSize: 12),
-                ),
-              ),
-              const SizedBox(height: 20),
-              for (final plan in const [
-                {
-                  'name': 'Básico con anuncios',
-                  'detail': 'Disfruta tus historias con pausas publicitarias.',
-                  'icon': 'play',
-                },
-                {
-                  'name': 'Estándar',
-                  'detail': 'Una experiencia para tus momentos favoritos.',
-                  'icon': 'tv',
-                },
-                {
-                  'name': 'Platino',
-                  'detail':
-                      'Lleva tu experiencia de entretenimiento más lejos.',
-                  'icon': 'star',
-                },
-              ])
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(24, 0, 24, 14),
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14),
-                      side: BorderSide(
-                        color: plan['name'] == 'Estándar'
-                            ? const Color(0xFF6387FF)
-                            : Colors.white12,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(22),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            plan['name']!,
-                            style: const TextStyle(
-                              fontFamily: 'OpenSans',
-                              fontSize: 23,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 12),
-                          Text(
-                            plan['detail']!,
-                            style: const TextStyle(
-                              color: Colors.white60,
-                              height: 1.6,
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          SizedBox(
-                            width: double.infinity,
-                            child: FilledButton(
-                              onPressed: () => demoNotice(
-                                context,
-                                'Seleccionaste ${plan['name']}',
-                              ),
-                              child: const Text('SELECCIONAR PLAN'),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-            ],
           ),
           const SectionHeading(
             eyebrow: 'RESOLVEMOS TUS DUDAS',

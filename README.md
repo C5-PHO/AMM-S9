@@ -77,3 +77,7 @@ Las licencias de las tres fuentes están incluidas en `assets/fonts/`.
 - `test/`: pruebas de interfaz.
 
 
+
+## Navegación entre pantallas
+
+La barra inferior abre Inicio (`/`), Catálogo (`/catalogo`) y Planes (`/planes`). Cada destino tiene su propia pantalla. Los botones de portada también abren Catálogo y Planes. Al tocar una tarjeta se abre Detalle (`/detalle`) y la flecha de regreso vuelve al catálogo. Cambiar de pestaña evita acumular destinos principales repetidos.
