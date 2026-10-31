@@ -688,7 +688,22 @@ class TitlePage extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 12),
-        Text(item['genre']!, style: const TextStyle(color: Color(0xFF8AA7FF))),
+        Row(
+          children: [
+            const Icon(
+              Icons.movie_outlined,
+              size: 18,
+              color: Color(0xFF8AA7FF),
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                item['genre']!,
+                style: const TextStyle(color: Color(0xFF8AA7FF)),
+              ),
+            ),
+          ],
+        ),
         const SizedBox(height: 20),
         Text(
           item['description']!,

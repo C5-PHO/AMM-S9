@@ -33,7 +33,7 @@ La sección de dispositivos carga una fotografía de cine desde Unsplash mediant
 ## Requisitos cubiertos
 
 - ListView horizontal para catálogos y vertical para la pantalla de detalle.
-- Row en el diálogo y encabezados del framework; Column para composición de secciones. Wrap permite adaptar grupos al ancho móvil.
+- Row para icono y género en la ficha de cada título; Column para composición de secciones. Wrap permite adaptar grupos al ancho móvil.
 - ListTile y Card para beneficios y títulos.
 - Lista de mapas para los títulos y sus descripciones.
 - Rutas `/` y `/detalle`, con argumentos y navegación de regreso.
@@ -62,3 +62,4 @@ Tres pruebas de widgets cubren los flujos interactivos y tamaños móviles de 32
 Alcance actualizado por indicación del docente: trabajo individual y diseño de una sola plataforma. La implementación es una interpretación visual; el sitio de referencia bloqueó el acceso automatizado.
 
 Las licencias de las tres fuentes están incluidas en `assets/fonts/`.
+
