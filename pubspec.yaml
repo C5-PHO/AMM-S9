@@ -1,5 +1,5 @@
 name: flutter_application_1
-description: Laboratorio 09 - interfaces móviles de Netflix y Prime Video.
+description: Laboratorio 09 individual - interfaz móvil de Max.
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -19,8 +19,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/netflix/
-    - assets/images/prime/
+    - assets/images/max/
   fonts:
     - family: Lato
       fonts:
@@ -31,3 +30,4 @@ flutter:
     - family: OpenSans
       fonts:
         - asset: assets/fonts/OpenSans.ttf
+
