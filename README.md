@@ -1,6 +1,6 @@
 # Laboratorio 09 · Max
 
-Trabajo individual de Aplicaciones Multiplataforma. Interfaz móvil en Flutter inspirada en Max, implementada en `lib/main.dart`.
+Trabajo individual de Aplicaciones Multiplataforma. Interfaz móvil en Flutter inspirada en Max, organizada por pantallas, widgets, modelos, datos y tema.
 
 ## Ejecutar
 
@@ -62,4 +62,17 @@ Tres pruebas de widgets cubren los flujos interactivos y tamaños móviles de 32
 Alcance actualizado por indicación del docente: trabajo individual y diseño de una sola plataforma. La implementación es una interpretación visual; el sitio de referencia bloqueó el acceso automatizado.
 
 Las licencias de las tres fuentes están incluidas en `assets/fonts/`.
+
+
+## Organización del código
+
+- `lib/main.dart`: punto de entrada.
+- `lib/app.dart`: aplicación y rutas.
+- `lib/theme/app_theme.dart`: colores, tipografía y tema global.
+- `lib/models/catalog_title.dart`: modelo de título con conversión desde mapas.
+- `lib/data/catalog_data.dart`: lista de mapas del catálogo.
+- `lib/screens/`: página principal y detalle.
+- `lib/widgets/`: componentes visuales reutilizables y diálogo de acceso.
+- `assets/`: imágenes y fuentes con sus licencias.
+- `test/`: pruebas de interfaz.
 
